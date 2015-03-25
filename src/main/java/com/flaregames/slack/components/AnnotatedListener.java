@@ -57,11 +57,6 @@ public class AnnotatedListener implements DisposableBean, InitializingBean {
       sendMessages(event, event.getPage(), "new page created");
    }
 
-   @EventListener
-   public void pageUpdateEvent(PageUpdateEvent event) {
-      sendMessages(event, event.getPage(), "page updated");
-   }
-
    private void sendMessages(ContentEvent event, AbstractPage page, String action) {
       if (event.isSuppressNotifications()) {
          LOGGER.info("Suppressing notification for {}.", page.getTitle());
